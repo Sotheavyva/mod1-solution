@@ -6,28 +6,28 @@ angular.module('LunchCheck', [])
 	LunchCheckController.$inject = ['$scope'];	
 	function LunchCheckController ($scope){
 		$scope.checkDishes = function () {
-			var sum = numDishes($scope.dishes);
-			$scope.message = sendMessage(sum);
+			var num = countDishes($scope.dishes);
+			$scope.message = buildMessage(num);
 		};
 
-	function numDishes(dishes) {
+	function countDishes(dishes) {
 		var count = 0;
 		if (dishes) {
-		var array = dishes.split(",");
+		    var array = dishes.split(',');
 			for (var idx in array){
-				if (array[i].trim().length !=0) {
-				dishes ++;
+				if (array[idx].trim().length !=0) {
+				count++;
 				}
 			}
 	}
 	return	count;
 	}
 
-	function sendMessage(sum){
-		if (sum === 0){
+	function buildMessage(num){
+		if (num === 0){
 			return 'Please enter data first';
 		} 
-		else if (sum <=3){
+		else if (num <=3){
 			return 'Enjoy!';
 		}else{
 			return 'Too much!';
