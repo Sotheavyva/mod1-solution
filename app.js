@@ -3,12 +3,13 @@
 	
 angular.module('LunchCheck', [])
 .controller('LunchCheckController', LunchCheckController);
-	LunchCheckController.$inject = ['$scope'];	
-	function LunchCheckController ($scope){
-		$scope.checkDishes = function () {
-			var num = countDishes($scope.dishes);
-			$scope.message = buildMessage(num);
-		};
+
+LunchCheckController.$inject = ['$scope'];	
+function LunchCheckController ($scope){
+	$scope.checkDishes = function () {
+		var num = countDishes($scope.dishes);
+		$scope.message = buildMessage(num);
+	};
 
 	function countDishes(dishes) {
 		var count = 0;
@@ -19,8 +20,8 @@ angular.module('LunchCheck', [])
 				count++;
 				}
 			}
-	}
-	return	count;
+		}
+		return	count;
 	}
 
 	function buildMessage(num){
@@ -33,5 +34,6 @@ angular.module('LunchCheck', [])
 			return 'Too much!';
 		}
 	}
-	
+}
+
 })();
