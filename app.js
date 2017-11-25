@@ -2,13 +2,13 @@
 'use strict';
 	
 angular.module('LunchCheck', [])
-.controller('LunchCheckController', LunchCheckController);
+.controller('ControllerLunchCheck', ControllerLunchCheck);
 
-LunchCheckController.$inject = ['$scope'];	
-function LunchCheckController ($scope){
+ControllerLunchCheck.$inject = ['$scope'];	
+function ControllerLunchCheck ($scope){
 	$scope.checkDishes = function () {
 		var num = countDishes($scope.dishes);
-		$scope.message = buildMessage(num);
+		$scope.message = sendMessage(num);
 	};
 
 	function countDishes(dishes) {
@@ -24,9 +24,9 @@ function LunchCheckController ($scope){
 		return	count;
 	}
 
-	function buildMessage(num){
+	function sendMessage(num){
 		if (num === 0){
-			return 'Please enter data first';
+			return 'Please enter data first!';
 		} 
 		else if (num <=3){
 			return 'Enjoy!';
